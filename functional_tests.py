@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 class NewVisitorTest(unittest.TestCase):
@@ -33,10 +34,11 @@ class NewVisitorTest(unittest.TestCase):
         # "1: Buy peacock feathers" as an item in the to-do list
         inputbox.send_keys(Keys.ENTER)
 
-        table = self.browser.find_element_by_tag_id('id_list_table')
+        table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
+            any(row.text == '1: Buy peacock feathers' for row in rows),
+            "New to-do item did not appear in table"
         )
 
         # There is still a text box inviting her to add another item.
