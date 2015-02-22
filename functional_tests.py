@@ -62,5 +62,10 @@ class NewVisitorTest(unittest.TestCase):
 
         # Satisfied, she goes back to sleep
 
+class ItemModelTest (TestCase):
+
+    def test_saving_and_retrieving_items (self):
+
+
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
